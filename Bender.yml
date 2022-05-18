@@ -1,0 +1,64 @@
+# Package metadata. Required.
+package:
+  # The name of the package. Required.
+  name: cutie
+
+  # The list of package authors and contributors. Optional.
+  # By convention, authors should be listed in the form shown below.
+  authors:
+  - "Moritz Scherer <scheremo@iis.ee.ethz.ch>"
+  - "Tim Fischer <fischeti@iis.ee.ethz.ch>"
+           
+# Other packages this package depends on. Optional.
+dependencies:
+  # Path dependency.
+  common_cells: { git: "https://github.com/pulp-platform/common_cells.git", rev: ""}
+
+# Freeze any dependency updates. Optional. False if omitted.
+# Useful for chip packages. Once the chip is in final tapeout mode, and
+# dependency updates would require disastrous amounts of re-verification.
+# frozen: true
+
+# List of source files in this package. Optional.
+sources:
+  # Individual source files are simple string entries
+    - conf/cutie_conf.sv
+    - conf/cutie_enums.sv
+    # Ternary encoder/decoder
+    - rtl/encoder.sv
+    - rtl/decoder.sv
+    # Weightmemory interfacing
+    - rtl/weightmemory.sv
+    - rtl/weightmemory_internal_wrapper.sv
+    - rtl/weightmemory_external_wrapper.sv
+    # Activation memory + TCN interfacing
+    - rtl/activationmemorybank.sv
+    - rtl/activationmemory.sv
+    - rtl/tcn_shiftmem.sv
+    - rtl/tcn_activationmemory.sv
+    - rtl/activationmemory_internal_wrapper.sv
+    - rtl/activationmemory_external_wrapper.sv
+    # line/tile buffer
+    - rtl/shifttilebufferblock.sv
+    - rtl/linebuffer.sv
+    - rtl/lb2ocu_controller.sv
+    # OCU
+    - rtl/tern_mult.sv
+    - rtl/popc.sv
+    - rtl/weightbufferblock_latch.sv
+    - rtl/addertree.sv
+    - rtl/ocu_pool_weights.sv
+    # Controller
+    - rtl/actmem_write_controller.sv
+    - rtl/linebuffer_master_controller.sv
+    - rtl/actmem2lb_controller.sv
+    - rtl/weightmemory_controller.sv
+    - rtl/ocu_controller.sv
+    - rtl/LUCA.sv
+    - rtl/cutie_top.sv
+    
+    # Testing harness
+    - rtl/tcn_actmem_bank.sv  
+    - rtl/sram_actmem_behavioural.sv
+    - rtl/sram_weightmem_behavioural.sv  
+    - rtl/tb/tb_cutie_top.sv

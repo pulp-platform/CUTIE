@@ -1,0 +1,36 @@
+# Ignore files starting with .
+**/\.*
+
+# Except for gitignore & cockpitrc
+!**/.gitignore
+!**/.cockpitrc
+
+# Ignore Emacs backup files
+*~
+
+# Ignore stimuli files
+stimuli/*.txt
+**/*json_in\.txt
+**/*json_out\.txt
+**/*exp_responses\.txt
+**/*stimuli\.txt
+
+# Except for decoder/encoder
+!decoder_stimuli.txt
+!encoder_stimuli.txt
+!decoder_exp_responses.txt
+!encoder_exp_responses.txt
+
+# Ignore pycache
+**/__pycache__
+
+# Ignore everything in sim except for scripts
+**/sim/*
+!**/sim/**/*\.sh
+!**/sim/**/*\.tcl
+!**/sim/**/*\.do
+!**/sim/**/Makefile
+**/sim/**/compile.tcl
+
+# Ignore local Bender files
+Bender.lock
